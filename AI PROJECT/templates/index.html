@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>نظام المشاهد والتحذيرات</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>آخر المشاهد المكتشفة</h1>
+    <ul id="scenesList">
+        {% for scene in scenes %}
+        <li>{{ scene.time }} - {{ scene.scene }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>سجل التحذيرات</h2>
+    <ul id="warningsList">
+        {% for warning in warnings %}
+        <li>{{ warning.time }} - {{ warning.warning }}</li>
+        {% endfor %}
+    </ul>
+
+    <button id="startBtn">تشغيل النظام</button>
+    <button id="stopBtn">إيقاف النظام</button>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
